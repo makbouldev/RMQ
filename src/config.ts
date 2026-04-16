@@ -13,6 +13,8 @@ export const siteConfig: SiteConfig = {
   siteDescription: "Services professionnels de dépannage et remorquage disponibles 24h/24 et 7j/7. Intervention rapide partout dans la région.",
 };
 
+const withBase = (assetPath: string) => `${import.meta.env.BASE_URL}${assetPath.replace(/^\/+/, "")}`;
+
 // Hero Section
 export interface HeroConfig {
   backgroundText: string;
@@ -24,7 +26,7 @@ export interface HeroConfig {
 }
 
 export const heroConfig: HeroConfig = {
-  // backgroundText: "Un service de dépannage fiable, disponible 24h/24 et 7j/7 pour chaque urgence",
+  backgroundText: "Un service de dépannage fiable, disponible 24h/24 et 7j/7 pour chaque urgence",
   heroImage: "",
   heroImageAlt: "Camion de dépannage professionnel",
   overlayText: "Service rapide et fiable",
@@ -58,11 +60,11 @@ export const introGridConfig: IntroGridConfig = {
   titleLine2: "notre priorité",
   description: "Nous offrons des services de dépannage et remorquage de haute qualité depuis plus de 15 ans. Notre équipe d'experts est disponible à tout moment pour vous aider sur la route, où que vous soyez.",
   portfolioImages: [
-    { src: "/gallery-1.jpg", alt: "Dépannage sur autoroute" },
-    { src: "/gallery-2.jpg", alt: "Remorquage de véhicule" },
-    { src: "/gallery-3.jpg", alt: "Service de dépannage" },
-    { src: "/gallery-4.jpg", alt: "Équipe professionnelle" },
-    { src: "/gallery-5.jpg", alt: "Camion de remorquage" },
+    { src: withBase("/gallery-1.jpg"), alt: "Dépannage sur autoroute" },
+    { src: withBase("/gallery-2.jpg"), alt: "Remorquage de véhicule" },
+    { src: withBase("/gallery-3.jpg"), alt: "Service de dépannage" },
+    { src: withBase("/gallery-4.jpg"), alt: "Équipe professionnelle" },
+    { src: withBase("/gallery-5.jpg"), alt: "Camion de remorquage" },
   ],
   accentText: "Services Professionnels - 24/7",
 };
@@ -100,7 +102,7 @@ export const featuredProjectsConfig: FeaturedProjectsConfig = {
       title: "Dépannage d'urgence",
       category: "Route",
       year: "2024",
-      image: "/project-1.jpg",
+      image: withBase("/project-1.jpg"),
       description: "Intervention rapide sur toutes routes pour panne mécanique, batterie déchargée ou crevaison.",
     },
     {
@@ -108,7 +110,7 @@ export const featuredProjectsConfig: FeaturedProjectsConfig = {
       title: "Remorquage longue distance",
       category: "Transport",
       year: "2024",
-      image: "/project-2.jpg",
+      image: withBase("/project-2.jpg"),
       description: "Transport sécurisé de votre véhicule sur de longues distances avec suivi en temps réel.",
     },
     {
@@ -116,7 +118,7 @@ export const featuredProjectsConfig: FeaturedProjectsConfig = {
       title: "Assurance accident",
       category: "Sinistre",
       year: "2024",
-      image: "/project-3.jpg",
+      image: withBase("/project-3.jpg"),
       description: "Gestion complète de votre sinistre avec prise en charge directe par votre assurance.",
     },
     {
@@ -124,7 +126,7 @@ export const featuredProjectsConfig: FeaturedProjectsConfig = {
       title: "Dépannage moto",
       category: "Deux-roues",
       year: "2024",
-      image: "/project-4.jpg",
+      image: withBase("/project-4.jpg"),
       description: "Service spécialisé pour motos et scooters avec équipement adapté.",
     },
   ],
@@ -214,19 +216,19 @@ export const whyChooseMeConfig: WhyChooseMeConfig = {
   ],
   featureCards: [
     {
-      image: "/feature-1.jpg",
+      image: withBase("/feature-1.jpg"),
       imageAlt: "Équipe professionnelle",
       title: "Équipe qualifiée",
       description: "Nos techniciens sont formés et certifiés pour tous types d'interventions.",
     },
     {
-      image: "/feature-2.jpg",
+      image: withBase("/feature-2.jpg"),
       imageAlt: "Flotte de camions",
       title: "Flotte moderne",
       description: "Véhicules de dépannage récents et équipés des dernières technologies.",
     },
   ],
-  wideImage: "/wide-service.jpg",
+  wideImage: withBase("/wide-service.jpg"),
   wideImageAlt: "Service de dépannage sur route",
   wideTitle: "Intervention rapide garantie",
   wideDescription: "Nous nous engageons à être sur place en moins de 30 minutes pour toute urgence dans notre zone de couverture.",
@@ -257,28 +259,28 @@ export const testimonialsConfig: TestimonialsConfig = {
       id: 1,
       name: "Marie Dupont",
       role: "Automobiliste",
-      image: "/testimonial-1.jpg",
+      image: withBase("/testimonial-1.jpg"),
       quote: "Service impeccable ! Arrivés en 20 minutes à 2h du matin. L'équipe était professionnelle et rassurante. Je recommande vivement.",
     },
     {
       id: 2,
       name: "Pierre Martin",
       role: "Chauffeur routier",
-      image: "/testimonial-2.jpg",
+      image: withBase("/testimonial-2.jpg"),
       quote: "Je fais appel à eux régulièrement pour mon entreprise. Toujours ponctuels et efficaces. Un partenaire de confiance.",
     },
     {
       id: 3,
       name: "Sophie Bernard",
       role: "Propriétaire de flotte",
-      image: "/testimonial-3.jpg",
+      image: withBase("/testimonial-3.jpg"),
       quote: "Excellent rapport qualité-prix. La prise en charge avec l'assurance est très facile. Équipe sympathique et compétente.",
     },
     {
       id: 4,
       name: "Jean Leroy",
       role: "Motard",
-      image: "/testimonial-4.jpg",
+      image: withBase("/testimonial-4.jpg"),
       quote: "Spécialistes du dépannage moto. Mon deux-roues a été transporté sans aucune rayure. Service très professionnel.",
     },
   ],
@@ -391,3 +393,4 @@ export const footerConfig: FooterConfig = {
     { label: "CGV", href: "#" },
   ],
 };
+
