@@ -9,7 +9,7 @@ import { Button } from '../components/ui/button';
 gsap.registerPlugin(ScrollTrigger);
 
 export function Hero() {
-  const phoneNumber = '+212600000000';
+  const phoneNumber = '+212728030890';
   const whatsappMessage = encodeURIComponent("Bonjour, j'ai besoin d'un dépannage.");
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
