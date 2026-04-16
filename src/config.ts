@@ -17,7 +17,7 @@ const withBase = (assetPath: string) => `${import.meta.env.BASE_URL}${assetPath.
 
 // Hero Section
 export interface HeroConfig {
-  backgroundText: string;
+  backgroundText?: string;
   heroImage: string;
   heroImageAlt: string;
   overlayText: string;
@@ -26,7 +26,7 @@ export interface HeroConfig {
 }
 
 export const heroConfig: HeroConfig = {
-  backgroundText: "Un service de dépannage fiable, disponible 24h/24 et 7j/7 pour chaque urgence",
+  // backgroundText: "Un service de dépannage fiable, disponible 24h/24 et 7j/7 pour chaque urgence",
   heroImage: "",
   heroImageAlt: "Camion de dépannage professionnel",
   overlayText: "Service rapide et fiable",
@@ -393,4 +393,3 @@ export const footerConfig: FooterConfig = {
     { label: "CGV", href: "#" },
   ],
 };
-
