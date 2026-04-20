@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react';
 import { CheckCircle2, ChevronLeft, Phone } from 'lucide-react';
 import { Button } from '../components/ui/button';
-import { trackContactConversion } from '../lib/googleAds';
+import { reportContactConversion, trackContactConversion } from '../lib/googleAds';
 import { navigateTo } from '../lib/navigation';
 
 const STORAGE_KEY = 'rmq-contact-form';
@@ -15,6 +15,7 @@ type StoredLead = {
 };
 
 export function ThankYouPage() {
+  const phoneHref = 'tel:+212728030890';
   const lead = useMemo<StoredLead | null>(() => {
     const raw = sessionStorage.getItem(STORAGE_KEY);
     if (!raw) return null;
@@ -79,7 +80,13 @@ export function ThankYouPage() {
             </Button>
 
             <Button asChild size="lg" variant="outline" className="h-12 rounded-full border-white/20 bg-white/6 px-7 text-base font-semibold text-white hover:bg-white/12 hover:text-white">
-              <a href="tel:+212728030890">
+              <a
+                href={phoneHref}
+                onClick={(event) => {
+                  event.preventDefault();
+                  reportContactConversion(phoneHref);
+                }}
+              >
                 <Phone className="size-4" />
                 Appeler maintenant
               </a>

@@ -5,11 +5,13 @@ import { ArrowRight, Clock3, MapPinned, MessageCircle, Phone, ShieldCheck } from
 import { heroConfig } from '../config';
 import heroBackground from '../assets/herobg.png';
 import { Button } from '../components/ui/button';
+import { reportContactConversion } from '../lib/googleAds';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function Hero() {
   const phoneNumber = '+212728030890';
+  const phoneHref = `tel:${phoneNumber}`;
   const whatsappMessage = encodeURIComponent("Bonjour, j'ai besoin d'un dépannage.");
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -132,7 +134,13 @@ export function Hero() {
                 size="lg"
                 className="h-12 rounded-full bg-orange-500 px-7 text-base font-semibold text-white shadow-[0_18px_45px_rgba(249,115,22,0.35)] hover:bg-orange-400"
               >
-                <a href={`tel:${phoneNumber}`}>
+                <a
+                  href={phoneHref}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    reportContactConversion(phoneHref);
+                  }}
+                >
                   <Phone className="size-4" />
                   Appeler maintenant
                 </a>
