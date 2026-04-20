@@ -1,6 +1,6 @@
-# AirLens - Portfolio Template
+# RMQ
 
-A premium single-page portfolio template with a dark forest theme, featuring cinematic scroll animations, parallax effects, and a photography/creative-focused design.
+GitHub repository: `https://github.com/makbouldev/RMQ`
 
 ## Features
 

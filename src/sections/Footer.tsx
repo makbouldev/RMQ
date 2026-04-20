@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Instagram, Twitter, Linkedin, Mail, type LucideIcon } from 'lucide-react';
 import { footerConfig } from '../config';
+import { ContactForm } from './ContactForm';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -88,6 +89,10 @@ export function Footer() {
 
         {/* Footer Content */}
         <div ref={contentRef} className="opacity-0">
+          <div className="mb-16">
+            <ContactForm />
+          </div>
+
           <div className="grid md:grid-cols-3 gap-12 md:gap-8 mb-16">
             {/* Contact Info */}
             <div>

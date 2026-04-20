@@ -141,10 +141,22 @@ export function Hero() {
               <Button
                 asChild
                 size="lg"
+                className="h-12 rounded-full bg-white px-7 text-base font-semibold text-softblack shadow-[0_18px_45px_rgba(255,255,255,0.18)] hover:bg-orange-50"
+              >
+                <a href="#contact-form">Demander un rappel</a>
+              </Button>
+
+              <Button
+                asChild
+                size="lg"
                 variant="outline"
                 className="h-12 rounded-full border-white/20 bg-white/6 px-7 text-base font-semibold text-white backdrop-blur-md hover:bg-white/12 hover:text-white"
               >
-                <a href={`https://wa.me/${phoneNumber.replace('+', '')}?text=${whatsappMessage}`} target="_blank" rel="noreferrer">
+                <a
+                  href={`https://wa.me/${phoneNumber.replace('+', '')}?text=${whatsappMessage}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <MessageCircle className="size-4" />
                   WhatsApp
                 </a>

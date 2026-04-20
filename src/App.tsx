@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useLenis } from './hooks/useLenis';
 import { Hero } from './sections/Hero';
 import { IntroGrid } from './sections/IntroGrid';
@@ -9,11 +9,15 @@ import { Testimonials } from './sections/Testimonials';
 import { FAQ } from './sections/FAQ';
 import { Footer } from './sections/Footer';
 import { siteConfig } from './config';
+import { trackGoogleAdsPageView } from './lib/googleAds';
+import { stripBasePath } from './lib/navigation';
+import { ThankYouPage } from './pages/ThankYouPage';
 import './App.css';
 
 function App() {
   // Initialize Lenis smooth scroll
   useLenis();
+  const [pathname, setPathname] = useState(() => stripBasePath(window.location.pathname));
 
   useEffect(() => {
     if (siteConfig.siteTitle) {
@@ -27,6 +31,23 @@ function App() {
       document.documentElement.lang = siteConfig.language;
     }
   }, []);
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      const currentPath = stripBasePath(window.location.pathname);
+      setPathname(currentPath);
+      trackGoogleAdsPageView(currentPath + window.location.search);
+    };
+
+    handleRouteChange();
+    window.addEventListener('popstate', handleRouteChange);
+
+    return () => window.removeEventListener('popstate', handleRouteChange);
+  }, []);
+
+  if (pathname === '/thank-you') {
+    return <ThankYouPage />;
+  }
 
   return (
     <main className="relative w-full overflow-x-hidden">
