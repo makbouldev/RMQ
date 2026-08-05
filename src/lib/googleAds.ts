@@ -5,7 +5,7 @@ declare global {
   }
 }
 
-const GOOGLE_ADS_ID = 'AW-18086327104';
+const GOOGLE_ADS_ID = 'AW-18273047092';
 const CONTACT_CONVERSION_ID = 'AW-18086327104/ba8MCJe-xz8cEMDmnbBD';
 
 export function trackGoogleAdsPageView(path?: string) {

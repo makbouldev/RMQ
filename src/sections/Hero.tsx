@@ -10,8 +10,8 @@ import { reportContactConversion } from '../lib/googleAds';
 gsap.registerPlugin(ScrollTrigger);
 
 export function Hero() {
-  const phoneNumber = '+212728030890';
-  const phoneHref = `tel:${phoneNumber}`;
+  const phoneNumber = '+212 787-449502';
+  const phoneHref = `tel:${phoneNumber.replace(/[\s-]/g, '')}`;
   const whatsappMessage = encodeURIComponent("Bonjour, j'ai besoin d'un dépannage.");
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -142,7 +142,7 @@ export function Hero() {
                   }}
                 >
                   <Phone className="size-4" />
-                  Appeler maintenant
+                  Appeler le {phoneNumber}
                 </a>
               </Button>
 
@@ -161,7 +161,7 @@ export function Hero() {
                 className="h-12 rounded-full border-white/20 bg-white/6 px-7 text-base font-semibold text-white backdrop-blur-md hover:bg-white/12 hover:text-white"
               >
                 <a
-                  href={`https://wa.me/${phoneNumber.replace('+', '')}?text=${whatsappMessage}`}
+                  href={`https://wa.me/${phoneNumber.replace(/\D/g, '')}?text=${whatsappMessage}`}
                   target="_blank"
                   rel="noreferrer"
                 >

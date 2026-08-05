@@ -15,7 +15,8 @@ type StoredLead = {
 };
 
 export function ThankYouPage() {
-  const phoneHref = 'tel:+212728030890';
+  const phoneNumber = '+212 787-449502';
+  const phoneHref = `tel:${phoneNumber.replace(/[\s-]/g, '')}`;
   const lead = useMemo<StoredLead | null>(() => {
     const raw = sessionStorage.getItem(STORAGE_KEY);
     if (!raw) return null;
@@ -88,7 +89,7 @@ export function ThankYouPage() {
                 }}
               >
                 <Phone className="size-4" />
-                Appeler maintenant
+                Appeler le {phoneNumber}
               </a>
             </Button>
           </div>
